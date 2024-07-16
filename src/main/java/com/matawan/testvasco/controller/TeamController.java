@@ -5,6 +5,7 @@ import com.matawan.testvasco.model.Player;
 import com.matawan.testvasco.model.Team;
 import com.matawan.testvasco.service.imp.TeamServicesImp;
 import com.matawan.testvasco.util.TeamValidator;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/team")
+@RequestMapping("/api/team/v1")
+@Tag(name = "Team", description = "Endpoints for manage the Teams")
 public class TeamController {
 
     @Autowired

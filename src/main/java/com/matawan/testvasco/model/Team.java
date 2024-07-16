@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "team")
@@ -34,6 +35,10 @@ public class Team implements Serializable {
 
     public Team() {
 
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -70,5 +75,18 @@ public class Team implements Serializable {
 
     public void setBudget(int budget) {
         this.budget = budget;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Team team)) return false;
+        return getBudget() == team.getBudget() && Objects.equals(getId(), team.getId()) && Objects.equals(getName(), team.getName()) && Objects.equals(getAcronym(), team.getAcronym()) && Objects.equals(getPlayers(), team.getPlayers());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getAcronym(), getPlayers(), getBudget());
     }
 }

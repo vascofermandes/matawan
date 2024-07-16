@@ -5,6 +5,8 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerValidatorTest {
+
+
     @Test
     public void testIsValidPlayer() {
         assertTrue(PlayerValidator.isValidPlayer("player1", "GK"));

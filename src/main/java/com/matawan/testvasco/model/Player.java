@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 
@@ -29,6 +30,10 @@ public class Player implements Serializable {
 
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
@@ -47,5 +52,17 @@ public class Player implements Serializable {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Player player)) return false;
+        return getId() == player.getId() && Objects.equals(getName(), player.getName()) && getPosition() == player.getPosition();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getPosition());
     }
 }

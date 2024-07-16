@@ -6,8 +6,8 @@ public class PlayerValidator {
 
     /**
      * @param name - player name
-     * @param pos - player pos
-     * @return true when all the player params are valid objects
+     * @param pos - player position
+     * @return true when all the player params are valid and expected objects
      */
     public static boolean isValidPlayer(String name, String pos) {
         return isValidPosition(pos);
